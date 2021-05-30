@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Atomics与SharedArrayBuffer
+    // Atomics API通过强制同一时刻只能对缓冲区执行一个操作，可以让多个上下文安全地读写一个SharedArrayBuffer。Atomics API是ES2017中定义
+    
+    // 跨上下文消息
+    // 使用postMessage()与其他窗口通信,接收到XDM消息后，window对象上会触发message事件。这个事件是异步触发的
+    // data：作为第一个参数传递给postMessage()的字符串数据。
+    // origin：发送消息的文档源，例如"http://www.wrox.com"。
+    // source：发送消息的文档中window对象的代理。这个代理对象主要用于在发送上一条消息的窗口中执行postMessage()方法。如果发送窗口有相同的源，那么这个对象应该就是window对象
+    
+    // Encoding API
+    // 新增了4个用于执行转换的全局类：TextEncoder、TextEncoderStream、TextDecoder和
+    
+    // File API与Blob API
+
+    // FileReader类型,表示一种异步文件读取机制, 可以把FileReader想象成类似于XMLHttpRequest，只不过是用于从文件系统读取文件，而不是从服务器读取数据
+    // readAsText(file, encoding)：从文件中读取纯文本内容并保存在result属性中。第二个参数表示编码，是可选的
+    // readAsDataURL(file)：读取文件并将内容的数据URI保存在result属性中
+    // readAsBinaryString(file)：读取文件并将每个字符的二进制数据保存在result属性中
+    // readAsArrayBuffer(file)：读取文件并将文件内容以ArrayBuffer形式保存在result属性
+
+    // 每个FileReader会发布几个事件，其中3个最有用的事件是progress、error和load，分别表示还有更多数据、发生了错误和读取完
+
+
+    // FileReaderSync类型就是FileReader的同步版本
+
+    // Blob与部分读取
+    // Blob对象有一个size属性和一个type属性，还有一个slice()方法用于进一步切分数据
+
+    // 读取拖放文件
+    // 通过事件的event.dataTransfer.files属性读到，这个属性保存着一组File对象，就像文本输入字段一样
+    
+    // 拖放
+    // dragstart, 只要目标还被拖动就会持续触发drag事件。这个事件类似于mousemove，即随着鼠标移动而不断触发。当拖动停止时（把元素放到有效或无效的放置目标上），会触发dragend事件。
+    // drag
+    // dragend
+
+    // dragenter
+    // dragover
+    // dragleave或drop
+
+    // dataTransfer对象有两个主要方法：getData()和setData()
+    // dataTransfer对象不仅可以用于实现简单的数据传输，还可以用于确定能够对被拖动元素和放置目标执行什么操作。为此，可以使用两个属性：dropEffect与effectAllowed。
+
+    // dropEffect属性可以告诉浏览器允许哪种放置行为。这个属性有以下4种可能的值。
+    // "none"：被拖动元素不能放到这里。这是除文本框之外所有元素的默认值
+    // "move"：被拖动元素应该移动到放置目标
+    // "copy"：被拖动元素应该复制到放置目标
+    // "link"：表示放置目标会导航到被拖动元素（仅在它是URL的情况下）
+
+    // 除非同时设置effectAllowed，否则dropEffect属性也没有用。effectAllowed属性表示对被拖动元素是否允许dropEffect
+    // "uninitialized"：没有给被拖动元素设置动作。
+    // "none"：被拖动元素上没有允许的操作。
+    // "copy"：只允许"copy"这种dropEffect。
+    // "link"：只允许"link"这种dropEffect。
+    // "move"：只允许"move"这种dropEffect。
+    // "copyLink"：允许"copy"和"link"两种dropEffect。
+    // "copyMove"：允许"copy"和"move"两种dropEffect。
+    // "linkMove"：允许"link"和"move"两种dropEffect。
+    // "all"：允许所有dropEffect
+
+    // 必须在ondragstart事件处理程序中设置这个属性
+    // 假设我们想允许用户把文本从一个文本框拖动到一个<div>元素。那么必须同时把dropEffect和effectAllowed属性设置为"move"。因为<div>元素上放置事件的默认行为是什么也不做，所以文本不会自动地移动自己。如果覆盖这个默认行为，文本就会自动从文本框中被移除。然后是否把文本插入<div>元素就取决于你了。如果是把dropEffect和effectAllowed属性设置为"copy"，那么文本框中的文本不会自动被移除
+
+    // HTML5规范还为dataTransfer对象定义了下列方法。
+    // addElement（element）：为拖动操作添加元素。这纯粹是为了传输数据，不会影响拖动操作的外观。在本书写作时，还没有浏览器实现这个方法。
+    // clearData（format）：清除以特定格式存储的数据。
+    // setDragImage（element, x, y）：允许指定拖动发生时显示在光标下面的图片。这个方法接收3个参数：要显示的HTML元素及标识光标位置的图片上的x和y坐标。这里的HTML元素可以是一张图片，此时显示图片；也可以是其他任何元素，此时显示渲染后的元素。
+    // types：当前存储的数据类型列表。这个集合类似数组，以字符串形式保存数据类型，比如"text"。
+
+
+    
+    // Notifications API
+    // Notifications API用于向用户显示通知
+    
+    // Page Visibility API
+    // visibilitychange事件，该事件会在文档从隐藏变可见（或反之）时触发
+    // 要想在页面从可见变为隐藏或从隐藏变为可见时得到通知，需要监听visibilitychange事件
+    // document.visibilityState的值是以下三个字符串之一，"hidden"、 "visible"、 "prerender"
+    
+    // Streams API
+    // 可读流，ReadableStreamDefaultController，ReadableStreamDefaultReader
+    // 可写流，WritableStream，WritableStreamDefaultWriter
+    // 转换流。转换流用于组合可读流和可写流。数据块在两个流之间的转换是通过transform()方法完成的。
+
+    
+    // 计时API
+    // Performance接口通过JavaScript API暴露了浏览器内部的度量指标，允许开发者直接访问这些信息并基于这些信息实现自己想要的功能
+    // Performance接口由多个API构成：
+
+    // High Resolution Time API
+    // window.performance.now()，这个方法返回一个微秒精度的浮点值
+    // performance.timeOrigin属性返回计时器初始化时全局系统时钟的值
+
+    // Performance Timeline API
+    // performance. getEntries，执行上下文中被记录的所有性能条
+    // performance.mark、
+    // performance.measure
+
+    // Navigation Timing API
+    // User Timing API
+    // Resource Timing API
+    // Paint Timing API
+    
+    // Web组件
+    // DocumentFragment
+    
+    // Web Cryptography API
+  </script>
+</body>
+</html>

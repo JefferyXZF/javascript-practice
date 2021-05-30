@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // cookie，存储会话信息，并在之后的每个请求中都会通过HTTP头部cookie再将它们发回服务器
+    // 限制
+    // 不超过300个cookie；
+    // 每个cookie不超过4096字节；
+    // 每个域不超过20个cookie；
+    // 每个域不超过81920字节
+
+    // cookie 构成
+    // 名称，值，域，路径、过期时间、安全标志 secure
+
+    // localStorage和sessionStorage
+    // clear()：删除所有值；不在Firefox中实现。
+    // getItem（name）：取得给定name的值。
+    // key（index）：取得给定数值位置的名称。
+    // removeItem（name）：删除给定name的名/值对。
+    // setItem（name, value）：设置给定name的值
+
+    // IndexedDB是类似于MySQL或Web SQL Database的数据库。与传统数据库最大的区别在于，IndexedDB使用对象存储而不是表格保存数据。
+    // IndexedDB数据库就是在一个公共命名空间下的一组对象存储，类似于NoSQL风格的实现
+
+    // 第一步是调用indexedDB.open()方法，并给它传入一个要打开的数据库名称.返回IDBRequest的实例，可以在这个实例上添加onerror和onsuccess事件处理程序
+  </script>
+</body>
+</html>

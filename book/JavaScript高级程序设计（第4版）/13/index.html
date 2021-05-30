@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 能力检测，在使用之前先测试浏览器的特定能力。例如，脚本可以在调用某个函数之前先检查它是否存在。这种客户端检测方式可以让开发者不必考虑特定的浏览器或版本，
+    // 而只需关注某些能力是否存在。能力检测不能精确地反映特定的浏览器或版本。
+
+    // 用户代理检测：navigator.userAgent，通过浏览器的用户代理字符串确定使用的是什么浏览器
+    // 用户代理检测，通过用户代理字符串确定浏览器。用户代理字符串包含关于浏览器的很多信息，通常包括浏览器、平台、操作系统和浏览器版本
+    // 解决不同浏览器，不同设备对兼容性
+
+    // 在选择客户端检测方法时，首选是使用能力检测。特殊能力检测要放在次要位置，作为决定代码逻辑的参考。用户代理检测是最后一个选择，因为它过于依赖用户代理字符串。
+
+    // 浏览器也提供了一些软件和硬件相关的信息。这些信息通过screen和navigator对象暴露出来。利用这些API，可以获取关于操作系统、浏览器、硬件、设备位置、电池状态等方面的准确信息。
+  </script>
+</body>
+</html>

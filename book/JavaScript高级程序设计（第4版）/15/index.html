@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Selectors API与HTML5
+    // Selectors API Level 1的核心是两个方法：querySelector()和querySelectorAll()。
+    // matches()：使用这个方法可以方便地检测某个元素会不会被querySelector()或querySelectorAll()方法返回。
+    if(document.body.matches('body.page1')) {
+      console.log(333)
+    }
+
+    // Element Traversal API为DOM元素添加了5个属性：
+    // childElementCount，返回子元素数量（不包含文本节点和注释）
+    // firstElementChild，指向第一个Element类型的子元素（Element版firstChild）；
+    // lastElementChild，指向最后一个Element类型的子元素（Element版lastChild）；
+    // previousElementSibling，指向前一个Element类型的同胞元素（Element版previousSibling）；
+    // nextElementSibling
+
+
+    // HTML5
+    // getElementsByClassName()-IE9及以上版
+    // classList属性API: add, contains, remove, toggle
+
+    // 焦点管理
+    // activeElement：当前拥有焦点的DOM元素
+    // document.hasFocus 文档是否有焦点
+
+    // HTMLDocument扩展
+    // readyState属性: loading， complete (文档加载完成)
+
+    if (document.readyState === 'complete') {
+
+    }
+
+    // compatMode属性：标准模式下document.compatMode的值是"CSS1Compat"，而在混杂模式下，document.compatMode的值是"BackCompat"：
+    // head属性
+    // 字符集属性：characterSet属性表示文档实际使用的字符集，也可以用来指定新字符集。这个属性的默认值是"UTF-16"
+
+    // 自定义数据属性：使用前缀data-以便告诉浏览器，这些属性既不包含与渲染有关的信息，也不包含元素的语义信息，通过元素的dataset属性来访问
+    // 自定义数据属性非常适合需要给元素附加某些数据的场景，比如链接追踪和在聚合应用程序中标识页面的不同部分。另外，单页应用程序框架也非常多地使用了自定义数据属性。
+
+    let div = document.getElementById('myDiv')
+    // 取得自定义属性对值
+    let appId = div.dataset.appId
+    let myName = div.dataset.myName
+
+    // 插入标记
+    // innerHTML属性(不同浏览器，处理方式不一样)、outerHTML属性、插入标签-insertAdjacentHTML()与insertAdjacentText()
+
+    // 专有扩展
+    // children属性：只包含元素的Element类型的子节点
+    // contains()方法：一个元素是不是另一个元素的后
+    // compareDocumentPosition()方法也可以确定节点间的关系
+    // innerText, outerText
+
+    console.log(document.documentElement.contains(document.body))
+
+    // 滚动
+    // scrollIntoView()
+    // scrollIntoViewIfNeeded()作为HTMLElement类型的扩展可以在所有元素上调用
+
+    // 如果不可见，将元素可见
+    // document.images[0].scrollIntoViewIfNeeded()
+
+  </script>
+</body>
+</html>
