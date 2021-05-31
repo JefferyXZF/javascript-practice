@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // BOM
+    // window 对象 - BOM核心
+    // 窗口关系：window.parent、window.top和window.self
+    // 窗口位置：screenLeft和screenTop、moveTo()和moveBy()方法移动窗口
+    // 像素比，物理像素与逻辑像素之间的缩放系数。：window.devicePixelRatio
+
+    // 窗口大小：
+    // innerWidth、innerHeight、outerWidth和outerHeight、document.documentElement.clientWidth和document.documentElement.clientHeight返回页面视口的宽度和高度
+    // document.compatMode来检查页面是否处于标准模式 CSS1Compat
+    // resizeTo()和resizeBy()方法调整窗口大小
+
+    // 视口位置
+    // window.pageXoffset/window. scrollX和window.pageYoffset/window.scrollY
+    // scroll()、scrollTo()和scrollBy()方法滚动页面
+
+    window.scrollTo({
+      left: 100,
+      top: 100,
+      behavior: 'auto' // auto 正常滚动，smooth 平滑滚动
+    })
+
+    // 导航与打开新窗口
+    // window.open()，接收4个参数：要加载的URL、目标窗口、特性字符串和表示新窗口在浏览器历史记录中是否替代当前加载页面的布尔值
+    // 特性字符串：height, width, left, top, Menubal, toolbar, status, resizable, scrollbars location
+
+
+    // location 对象 - 获取页面信息
+    // hash, host, hostname, href, pathname, port, protocal, search, username, password, origin
+    // URLSearchParams提供了一组标准API方法，通过它们可以检查和修改查询字符串: 这个实例上暴露了get()、set()、has()和delete()等方法
+    let qs = '?q=javascript&num=10'
+    let searchParans = new URLSearchParams(qs)
+    console.log(searchParans.has('num')) // true
+    console.log(searchParans.get('num'))
+    console.log(searchParans.set('page', '3'))
+    console.log(searchParans.delete('q'))
+
+    // 操作地址：assign()、replace()、reload()
+
+
+
+    // navigator 对象 - 浏览器信息
+
+
+    // screen 对象
+    // availHeight, availLeft, availTop, availWidth, colorDepth, width, height, top, left, orintation, pixelDepth(屏幕对位深)
+
+
+
+    // history 对像
+    // 导航 go、back()和forward()
+    // 历史状态管理 hashchange、pushState、popstate、replaceState
+
+
+
+  </script>
+</body>
+</html>

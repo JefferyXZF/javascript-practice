@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // XMLHttpRequest对象
+    // open, 接收3个参数：请求类型（"get"、"post"等）、请求URL，以及表示请求是否异步的布尔值
+    // send()方法接收一个参数，是作为请求体发送的数据。如果不需要发送请求体，则必须传null
+
+    // responseText：作为响应体返回的文本。
+    // responseXML：如果响应的内容类型是"text/xml"或"application/xml"，那就是包含响应数据的XML DOM文档。
+    // status：响应的HTTP状态。
+    // statusText：响应的HTTP状态描述
+
+    // XHR对象有一个readyState属性，表示当前处在请求/响应过程的哪个阶段
+    // 0：未初始化（Uninitialized）。尚未调用open()方法。
+    // 1：已打开（Open）。已调用open()方法，尚未调用send()方法。
+    // 2：已发送（Sent）。已调用send()方法，尚未收到响应。
+    // 3：接收中（Receiving）。已经收到部分响应。
+    // 4：完成（Complete）。已经收到所有响应，可以使用了。
+
+    // 在收到响应之前如果想取消异步请求，可以调用abort()方法
+
+    // FormData类型, append 方法
+    // 超时，xhr.timeout, 事件ontimeout
+
+    // overrideMimeType()方法用于重写XHR响应的MIME类型
+
+    // 进度事件
+    // loadstart：在接收到响应的第一个字节时触发。
+    // progress：在接收响应期间反复触发。
+    // error：在请求出错时触发。
+    // abort：在调用abort()终止连接时触发。
+    // load：在成功接收完响应时触发。
+    // loadend：在通信完成时，且在error、abort或load之后触发
+
+    // progress事件
+    // onprogress事件处理程序都会收到event对象，其target属性是XHR对象，且包含3个额外属性：lengthComputable、position和totalSize。
+    // 其中，lengthComputable是一个布尔值，表示进度信息是否可用；position是接收到的字节数；totalSize是响应的Content-Length头部定义的总字节数。有了这些信息，就可以给用户提供进度条了
+    // 为了保证正确执行，必须在调用open()之前添加onprogress事件处理程序。每次触发progress事件都会更新HTML元素中的信息。假设响应有Content-Length头部，就可以利用这些信息计算出已经收到响应的百分比。
+
+    // 跨源资源共享。CORS背后的基本思路就是使用自定义的HTTP头部允许浏览器和服务器相互了解，以确实请求或响应应该成功还是失败
+    // 预检请求
+    // Origin：与简单请求相同
+    // Access-Control-Request-Method：请求希望使用的方法
+    // Access-Control-Request-Headers:（可选）要使用的逗号分隔的自定义头部列表
+
+    // Access-Control-Allow-Origin：与简单请求相同
+    // Access-Control-Allow-Methods：允许的方法（逗号分隔的列表）
+    // Access-Control-Allow-Headers：服务器允许的头部（逗号分隔的列表）
+    // Access-Control-Max-Age：缓存预检请求的秒数
+    // 凭据请求。withCredentials属性设置为true来表明请求会发送凭据
+
+    // Web Socket（套接字）的目标是通过一个长时连接实现与服务器全双工、双向的通信。在JavaScript中创建Web Socket时，一个HTTP请求会发送到服务器以初始化连接。
+    // 服务器响应后，连接使用HTTP的Upgrade头部从HTTP协议切换到WebSocket协议。这意味着Web Socket不能通过标准HTTP服务器实现，而必须使用支持该协议的专有服务器
+
+    // WebSocket.OPENING（0）：连接正在建立。
+    // WebSocket.OPEN（1）：连接已经建立。
+    // WebSocket.CLOSING（2）：连接正在关闭。
+    // WebSocket.CLOSE（3）：连接已经关闭
+
+    // 要向服务器发送数据，使用send()方法并传入一个字符串、ArrayBuffer或Blob
+    // 服务器向客户端发送消息时，WebSocket对象上会触发message事件
+
+    // open：在连接成功建立时触发。
+    // error：在发生错误时触发。连接无法存续。❑
+    // close：在连接关闭时触发
+    // 只有close事件的event对象上有额外信息。这个对象上有3个额外属性：wasClean、code和reason。其中，wasClean是一个布尔值，表示连接是否干净地关闭；code是一个来自服务器的数值状态码；reason是一个字符串，包含服务器发来的消息。可以将这些信息显示给用户或记录到日志：
+
+    // ajax 安全
+    // 在未授权系统可以访问某个资源时，可以将其视为跨站点请求伪造（CSRF, cross-site request forgery）攻击
+    // 关于安全防护Ajax相关URL的一般理论认为，需要验证请求发送者拥有对资源的访问权限。可以通过如下方式实现
+    // 要求通过SSL访问能够被Ajax访问的资源。
+    // 要求每个请求都发送一个按约定算法计算好的令牌（token）。注意，以下手段对防护CSRF攻击是无效的。
+    // 要求POST而非GET请求（很容易修改请求方法）。
+    // 使用来源URL验证来源（来源URL很容易伪造）。
+    // 基于cookie验证（同样很容易伪造）
+  </script>
+</body>
+</html>

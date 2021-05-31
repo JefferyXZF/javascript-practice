@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 动画
+    // 使用requestAnimationFrame，cancelAnimationFrame
+
+    // 基本的画布功能
+    // dom.getContext('2d')，2D绘图上下文提供了绘制2D图形的方法，包括矩形、弧形和路径
+    // 填充和描边，strokeStyle，fillStyle
+    // 绘制矩形，fillRect()、strokeRect()和clearRect()，接收4个参数：矩形x坐标、矩形y坐标、矩形宽度和矩形高度。这几个参数的单位都是像素
+
+    // 绘制路径，先调用beginPath()方法以表示要开始绘制新路径。然后，再调用下列方法来绘制路径。
+    // arc(x, y, radius, startAngle, endAngle, counterclockwise)：以坐标(x, y)为圆心，以radius为半径绘制一条弧线，起始角度为startAngle，结束角度为endAngle（都是弧度）。最后一个参数counterclockwise表示是否逆时针计算起始角度和结束角度（默认为顺时针）
+    // arcTo(x1, y1, x2, y2, radius)：以给定半径radius，经由(x1, y1)绘制一条从上一点到(x2, y2)的弧线
+    // lineTo(x, y)：绘制一条从上一点到(x, y)的直线
+    // moveTo(x, y)：不绘制线条，只把绘制光标移动到(x, y)
+    // quadraticCurveTo(cx, cy, x, y)：以(cx, cy)为控制点，绘制一条从上一点到(x, y)的弧线（二次贝塞尔曲线）
+    // rect(x, y, width, height)：以给定宽度和高度在坐标点(x, y)绘制一个矩形。这个方法与strokeRect()和fillRect()的区别在于，它创建的是一条路径，而不是独立的图形
+
+    // 创建路径之后，可以使用closePath()方法绘制一条返回起点的线
+
+    // 绘制文本，fillText()和strokeText()，接收4个参数：要绘制的字符串、x坐标、y坐标和可选的最大像素宽度
+    // font：以CSS语法指定的字体样式、大小、字体族等，比如"10px Arial"。
+    // textAlign：指定文本的对齐方式，可能的值包括"start"、"end"、"left"、"right"和"center"。推荐使用"start"和"end"，不使用"left"和"right"，因为前者无论在从左到右书写的语言还是从右到左书写的语言中含义都更明确。
+    // textBaseLine：指定文本的基线，可能的值包括"top"、"hanging"、"middle"、"alphabetic"、"ideographic"和"bottom"
+
+    // 阴影
+    // shadowColor: CSS颜色值，表示要绘制的阴影颜色，默认为黑色
+    // shadowOffsetX：阴影相对于形状或路径的x坐标的偏移量，默认为0。
+    // shadowOffsetY：阴影相对于形状或路径的y坐标的偏移量，默认为0。
+    // shadowBlur：像素，表示阴影的模糊量。默认值为0，表示不模糊
+
+    // 渐变，createLinearGradient()方法。这个方法接收4个参数：起点x坐标、起点y坐标、终点x坐标和终点y坐标
+    // 使用addColorStop()方法为渐变指定色标。这个方法接收两个参数：色标位置和CSS颜色字符串。色标位置通过0～1范围内的值表示，0是第一种颜色，1是最后一种颜色
+
+    // 径向渐变（或放射性渐变）要使用createRadialGradient()方法，接收6个参数，分别对应两个圆形圆心的坐标和半径
+
+    // 图案，createPattern，两个参数：一个HTML <img>元素和一个表示该如何重复图像的字符串。第二个参数的值与CSS的background-repeat属性是一样的，包括"repeat"、"repeat-x"、"repeat-y"和"no-repeat"
+
+    // 图像数据，getImageData，接收4个参数：要取得数据中第一个像素的左上角坐标和要取得的像素宽度及高度
+
+    // 合成，2D上下文中绘制的所有内容都会应用两个属性：globalAlpha和globalCompositionOperation
+    // globalAlpha属性是一个范围在0~1的值（包括0和1），用于指定所有绘制内容的透明度，默认值为
+
+    // globalCompositionOperation属性表示新绘制的形状如何与上下文中已有的形状融合
+    // source-over：默认值，新图形绘制在原有图形上面
+    // source-in：新图形只绘制出与原有图形重叠的部分，画布上其余部分全部透明
+    // source-out：新图形只绘制出不与原有图形重叠的部分，画布上其余部分全部透明
+    // source-atop：新图形只绘制出与原有图形重叠的部分，原有图形不受影响
+    // destination-over：新图形绘制在原有图形下面，重叠部分只有原图形透明像素下的部分可见
+    // destination-in：新图形绘制在原有图形下面，画布上只剩下二者重叠的部分，其余部分完全透明
+    // destination-out：新图形与原有图形重叠的部分完全透明，原图形其余部分不受影响
+    // destination-atop：新图形绘制在原有图形下面，原有图形与新图形不重叠的部分完全透明
+    // lighter：新图形与原有图形重叠部分的像素值相加，使该部分变亮
+    // copy：新图形将擦除并完全取代原有图形
+    // xor：新图形与原有图形重叠部分的像素执行“异或”计算
+
+    // WebGL是画布的3D上下文
+    // 使用WebGL最好熟悉OpenGL ES 2.0，因为很多概念可以照搬过来
+
+  </script>
+</body>
+</html>

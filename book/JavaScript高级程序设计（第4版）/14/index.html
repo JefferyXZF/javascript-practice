@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // DOM
+
+    // 节点层级
+    // DOM中总共有12种节点类型，这些类型都继承一种基本类型
+    // 节点层次：childNodes, parentNode、previousSibling和nextSibling、firstChild和lastChild、hasChildNodes、ownerDocument属性是一个指向代表整个文档的文档节点的指针
+    // 操作节点：appendChild()、insertBefore()、replaceChild()两个参数：要插入的节点和要替换的节点、removeChild、cloneNode、normalize-处理文档子树中的文本节点，如果发现空文本节点，则将其删除；如果两个同胞节点是相邻的，则将其合并为一个文本节点
+
+    // 属性：getAttribute()、setAttribute()和removeAttribute()
+    // attributes属性：getNamedItem（name）-返回nodeName属性等于name的节点；、removeNamedItem（name）、setNamedItem（node）、 item（pos），返回索引位置pos处的节点
+    // attributes属性最有用的场景是需要迭代元素上所有属性的时候
+
+    // 文本节点
+    // document.createTextNode()、normalize-规范化文本节点，同胞文本节点会被合并为一个文本节点、splitText(index)-拆分文本节点
+
+    // DocumentFragment类型
+    // document.createDocumentFragment()
+
+
+    // DOM 编程
+
+
+
+    // MutationObserver接口，可以观察整个文档、DOM树的一部分，或某个元素。此外还可以观察元素属性、子节点、文本，或者前三者任意组合的变化
+    // DOM规范中的MutationObserver接口，可以在DOM被修改时异步执行回调。
+    // 使用场景，可以观察DOM节点对变化，调用回调函数
+
+    //实例API：observe, disconnect()方法- 要提前终止执行回调
+
+    let observer = new MutationObserver(() => {
+      console.log('has change')
+    })
+    observer.observe(document.body, { attributes: true })
+    document.body.className = 'foo'
+    console.log('1111')
+    </script>
+</body>
+</html>
