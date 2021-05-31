@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // 迭代器
+    // 很多内置类型都实现了Iterable接口：字符串、数组、映射、集合、arguments、NodeList等DOM集合类型
+    // 接收可迭代对象的原生语言特性包括：for-of循环、数组解构、扩展操作符、 Array.from()、
+    // 创建集合、创建映射、Promise.all()接收由期约组成的可迭代对象、Promise.race()接收由期约组成的可迭代对象、yield＊操作符，在生成器中使用
+
+    // ECMAScript 6正式支持迭代模式并引入了两个新的语言特性：迭代器和生成器。
+    // 迭代器是一个可以由任意对象实现的接口，支持连续获取对象产出的每一个值。任何实现Iterable接口的对象都有一个Symbol.iterator属性，这个属性引用默认迭代器。默认迭代器就像一个迭代器工厂，也就是一个函数，调用之后会产生一个实现Iterator接口的对象。
+    // 迭代器必须通过连续调用next()方法才能连续取得值，这个方法返回一个IteratorObject。这个对象包含一个done属性和一个value属性。前者是一个布尔值，表示是否还有更多值可以访问；后者包含迭代器返回的当前值。这
+
+    // 生成器是一种特殊的函数，调用之后会返回一个生成器对象。生成器对象实现了Iterable接口，因此可用在任何消费可迭代对象的地方。生成器的独特之处在于支持yield关键字，这个关键字能够暂停执行生成器函数。使用yield关键字还可以通过next()方法接收输入和产生输出。在加上星号之后，yield关键字可以将跟在它后面的可迭代对象序列化为一连串值。
+  </script>
+</body>
+</html>
