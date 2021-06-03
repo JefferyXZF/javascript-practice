@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 属性描述符
+    // writable决定是否可以修改属性的值
+    // Configurable，不可配置属性描述，不能用 delete 语句删除属性
+    // Enumerable 是否可以枚举
+
+    // 对象常量：writable:false和configurable:false
+    // 禁止扩展：Object.preventExtensions(..), 不能新增属性
+    // 密封: Object.seal(..)，现有对象上调用Object.preventExtensions(..)并把所有现有属性标记为configurable:false（不能添加新属性，也不能重新配置或者删除任何现有属性（虽然可以修改属性的值）。）
+    // 冻结：Object.freeze(..)，现有对象上调用Object.seal(..)并把所有“数据访问”属性标记为writable:false，
+
+    // hasOwnProperty
+    // in和hasOwnProperty(..)的区别在于是否查找[[Prototype]]链，然而，Object.keys(..)和Object.getOwnPropertyNames(..)都只会查找对象直接包含的属性
+  </script>
+</body>
+</html>
