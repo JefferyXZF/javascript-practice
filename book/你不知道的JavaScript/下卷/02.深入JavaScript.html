@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 值类型
+    // null, undefined, string, number, boolean, symbol, object
+
+    // 假值
+    // '', 0, false, NaN, -0, +0, null, undefined
+
+    // 严格模式
+    // 将代码保持在一个更安全、更适当的规范集合之内。遵循严格模式也更容易让引擎优化你的代码
+
+    // 闭包最常见的应用是模块模式。模块允许你定义外部不可见的私有实现细节（变量、函数），同时也可以提供允许从外部访问的公开API
+
+    function foo () {
+      console.log(this.bar)
+    }
+
+    var bar = 'global'
+
+    var obj1 = {
+      bar: 'obj1',
+      foo: foo
+    }
+
+    var obj2 = {
+      bar: 'obj2'
+    }
+
+    foo() // 全局的
+    obj1.foo() // obj1
+    foo.call(obj2) // obj2
+    new foo() // undefined
+
+    // 设置this有4条规则
+    // (1) 在非严格模式下，foo()最后会将this设置为全局对象。在严格模式下，这是未定义的行为，在访问bar属性时会出错——因此"global"是为this.bar创建的值。
+    // (2) obj1.foo()将this设置为对象obj1。
+    // (3) foo.call(obj2)将this设置为对象obj2。
+    // (4) new foo()将this设置为一个全新的空对象。
+
+
+    // 学习使用JavaScript编程的第一步就是要了解其核心机制，比如值、类型、函数闭包、this以及原型。
+  </script>
+</body>
+</html>
